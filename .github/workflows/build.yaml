@@ -21,17 +21,17 @@ jobs:
         source: "scripts/build.sh"
         target: "/root/"
     - name: build docker
-        uses: appleboy/ssh-action@master
-        env:
-          DOCKER_USERNAME: "DOCKER_USERNAME"
-          DOCKER_PASSWORD: "DOCKER_PASSWORD"
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          envs: DOCKER_USERNAME,DOCKER_PASSWORD
-       	  script: /root/build.sh
+      uses: appleboy/ssh-action@master
+      env:
+        DOCKER_USERNAME: "DOCKER_USERNAME"
+        DOCKER_PASSWORD: "DOCKER_PASSWORD"
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        envs: DOCKER_USERNAME,DOCKER_PASSWORD
+        script: /root/build.sh
 #    - name: Executing remote  command
 #      uses: appleboy/ssh-action@master
 #      with:
