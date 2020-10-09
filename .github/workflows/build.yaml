@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "scripts/build.sh"
-        target: "/root/"
+        target: "/opt/"
 
     - name: Executing remote  command
       uses: appleboy/ssh-action@master
