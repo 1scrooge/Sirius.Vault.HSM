@@ -19,13 +19,24 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "scripts/build.sh"
-        target: "/opt/"
-
-    - name: Executing remote  command
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-#        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-        script: ls -la
+        target: "/root/"
+    - name: build docker
+        uses: appleboy/ssh-action@master
+        env:
+          DOCKER_USERNAME: "DOCKER_USERNAME"
+          DOCKER_PASSWORD: "DOCKER_PASSWORD"
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          envs: DOCKER_USERNAME,DOCKER_PASSWORD
+       	  script: /root/build.sh
+#    - name: Executing remote  command
+#      uses: appleboy/ssh-action@master
+#      with:
+#        host: ${{ secrets.HOST }}
+#        USERNAME: ${{ secrets.USERNAME }}
+##        PORT: ${{ secrets.PORT }}
+#        KEY: ${{ secrets.SSHKEY }}
+#        script: ls -la
