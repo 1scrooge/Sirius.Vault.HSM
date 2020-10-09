@@ -28,7 +28,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
+        KEY: ${{ secrets.SSHKEY }}
 #        port: ${{ secrets.PORT }}
         envs: DOCKER_USERNAME,DOCKER_PASSWORD
         script: /root/build.sh
