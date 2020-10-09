@@ -32,4 +32,4 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           envs: DOCKER_USERNAME,DOCKER_PASSWORD
-       	  script: /root/scripts/build.sh
+       	  script: ls -la
