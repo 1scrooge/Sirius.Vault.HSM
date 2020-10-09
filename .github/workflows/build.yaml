@@ -29,7 +29,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
+#        port: ${{ secrets.PORT }}
         envs: DOCKER_USERNAME,DOCKER_PASSWORD
         script: /root/build.sh
 #    - name: Executing remote  command
