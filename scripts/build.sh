@@ -1,6 +1,6 @@
 #!/bin/bash
-DOCKER_PASSWORD=$1
-DOCKER_USERNAME=$2
+DOCKER_USERNAME=$1
+DOCKER_PASSWORD=$2
 echo "$DOCKER_PASSWORD $DOCKER_USERNAME"
 #cloning repository
 if ! [ -d /root/Sirius.Vault.HSM ];then
