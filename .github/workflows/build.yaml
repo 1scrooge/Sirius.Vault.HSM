@@ -23,8 +23,8 @@ jobs:
     - name: build docker
       uses: appleboy/ssh-action@master
       env:
-        DOCKER_USERNAME: "DOCKER_USERNAME"
-        DOCKER_PASSWORD: "DOCKER_PASSWORD"
+        DOCKER_USERNAME: ${{ secret.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secret.DOCKER_PASSWORD }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
