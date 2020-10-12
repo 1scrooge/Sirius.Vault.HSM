@@ -31,7 +31,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
 #        port: ${{ secrets.PORT }}
 #        envs: DOCKER_USERNAME,DOCKER_PASSWORD
-        script: /root/scripts/build.sh "${{ secret.DOCKER_USERNAME }}" "${{ secret.DOCKER_PASSWORD }}" 
+        script: /root/scripts/build.sh "${{ secrets.DOCKER_USERNAME }}" "${{ secrets.DOCKER_PASSWORD }}" 
 #    - name: Executing remote  command
 #      uses: appleboy/ssh-action@master
 #      with:
