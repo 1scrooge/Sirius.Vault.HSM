@@ -30,7 +30,11 @@ jobs:
         username: ${{ secrets.USERNAME }}
         KEY: ${{ secrets.SSHKEY }}
 #        port: ${{ secrets.PORT }}
-        script: /root/scripts/build.sh "${{ secrets.DOCKER_USERNAME }}" "${{ secrets.DOCKER_PASSWORD }}" 
+        script: |
+           export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
+           export DOCKER_PASSWORD="${{ secrets.DOCKER_PASSWORD }}"
+#           /root/scripts/build.sh "${{ secrets.DOCKER_USERNAME }}" "${{ secrets.DOCKER_PASSWORD }}" 
+           /root/scripts/build.sh 
 #    - name: Executing remote  command
 #      uses: appleboy/ssh-action@master
 #      with:
