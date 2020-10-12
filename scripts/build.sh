@@ -1,5 +1,7 @@
 #!/bin/bash
-
+DOCKER_PASSWORD=$1
+DOCKER_USERNAME=$2
+echo "$DOCKER_PASSWORD $DOCKER_USERNAME"
 #cloning repository
 if ! [ -d /root/Sirius.Vault.HSM ];then
 if [ ! -n "$(grep "^github.com " ~/.ssh/known_hosts)" ]; then ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null; fi;
