@@ -12,6 +12,6 @@ fi
 #building docker
 tag_repo=`cd /root/Sirius.Vault.HSM && git describe --tag`
 tag_docker=`echo $tag_repo |awk -F- '{print $2}'`
-cd /root/Sirius.Vault.HSM && docker build -t scrooge/sirius-vault-hsm-s390x:$tag_docker -f docker/Dockerfile .
+cd /root/Sirius.Vault.HSM && docker build -t scrooge/sirius-vault-hsm:s390x-$tag_docker -f docker/Dockerfile .
 echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin
-docker push scrooge/sirius-vault-hsm-s390x:$tag_docker
+docker push scrooge/sirius-vault-hsm:s390x-$tag_docker
