@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Copy file via scp
+    - name: copy file via scp
       uses: appleboy/scp-action@master
       env:
         HOST: ${{ secrets.HOST }}
@@ -18,7 +18,7 @@ jobs:
 #        PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
-        source: "scripts/build.sh"
+        source: "scripts/"
         target: "/root/"
     - name: build docker
       uses: appleboy/ssh-action@master
@@ -34,11 +34,11 @@ jobs:
            export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
            export DOCKER_PASSWORD="${{ secrets.DOCKER_PASSWORD }}"
            /root/scripts/build.sh 
-#    - name: Executing remote  command
-#      uses: appleboy/ssh-action@master
-#      with:
-#        host: ${{ secrets.HOST }}
-#        USERNAME: ${{ secrets.USERNAME }}
+    - name: deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
 ##        PORT: ${{ secrets.PORT }}
-#        KEY: ${{ secrets.SSHKEY }}
-#        script: ls -la
+        KEY: ${{ secrets.SSHKEY }}
+        script: /root/scripts/deploy.sh
