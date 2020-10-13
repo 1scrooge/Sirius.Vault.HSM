@@ -5,7 +5,7 @@ tag_docker=`echo $tag_repo |awk -F- '{print $2}'`
 
 #changing image tag
 #sed -E -i'' "s/(vault-hsm:).*/image: swisschains\/sirius-vault-hsm:s390x-$tag_docker/" '/root/docker/docker-compose.yaml'
-sed -E -i'' "s/(image: scrooge\/sirius-vault-hsm).*/image: scrooge\/sirius-vault-hsm-s390x:12/" '/root/docker/docker-compose.yaml'
+sed -E -i'' "s/(image: scrooge\/sirius-vault-hsm).*/image: scrooge\/sirius-vault-hsm:s390x-$tag_docker/" '/root/docker/docker-compose.yaml'
 #pull and restart containier
 docker-compose -f /root/docker/docker-compose.yaml pull
 docker-compose -f /root/docker/docker-compose.yaml down
